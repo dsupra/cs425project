@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Daniel Superales 
+     UOG CS425 Project Web App Chart Data
+	 Due: 5/10/2017-->
+<html lang="en-US">
+<body style="background-color:powderblue;">
+
+
+{% load staticfiles %} <!-- New line -->
+
+<html>
+<head>
+<title>CS425</title>
+</head>
+<body>
+<h1>Welcome to my CS425 Project!</h1>
+<div>
+<p>Hafa adai! My name is Daniel Superales and I am happy to present 
+my CS425 System's Analysis and Design Project. The purpose of this project was
+to create a Django web app that displays some of Guam's historical rain gage
+data in a chart form using Chartit. </p1><br />
+
+
+
+<strong>{{ boldmessage }}</strong><br />
+</div>
+<div>
+<a href="/rain/about/">About</a><br />
+<h3>Here's the raw data from NOAA</h3></br>
+<p>Precipitation data was downloaded from NOAA for the following rain gage locations:
+<div>
+{% if rains %}
+<ul>
+{% for rain in rains %}
+<li>{{ rain.station_name }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<strong>There are no rain gages present.</strong>
+{% endif %}
+</div>
+
+The data needed to be cleaned up a little before use. Afterwards it was imported into Microsoft Access where to check
+for any other issues and to verify relationships.
+</p>
+<p>
+<img src="{% static "images/NOAA_download.png" %}"
+alt="NOAA" /> <!-- New line -->
+</p>
+<h3>Here's the data in Microsoft Access 2016.</h3>
+<p>
+<img src="{% static "images/MS_Access_ER_diagram.png" %}"
+alt="Picture of Rango" /> <!-- New line -->
+<img src="{% static "images/MS_Access_tables.png" %}"
+alt="Picture of Rango" /> <!-- New line -->
+</p>
+
+</div>
+</body>
+</html>
