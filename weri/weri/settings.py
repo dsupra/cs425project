@@ -20,24 +20,25 @@ SECRET_KEY = 'br3thjkbet=2#tlk&k$za+=i_5s-9ot%f1cw(g%bn5(0#5q%jg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',]
-
+ALLOWED_HOSTS = ['127.0.0.1', ]
 
 # Application definition
 
 INSTALLED_APPS = [
-	
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'rain',
-	'jquery',
-	'highcharts',
-	'chartit',
-	'csvimport.app.CSVImportConf',
+    'rain',
+    # just commented out so I could get it working.  You need to add these requirements to the requirements.txt file I created.for
+    # This allows me and anyone else to quickly install dependencies for your application
+    # 'jquery',
+    # 'highcharts',
+    # 'chartit',
+    # 'csvimport.app.CSVImportConf',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'weri.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,24 +71,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'weri.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
     'default': {
-		#i think this is correct
+        # i think this is correct
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		#not sure what to do here. Will the db be installed
-		#on the same machine as Django?
+        # not sure what to do here. Will the db be installed
+        # on the same machine as Django?
+        # Travis: For dev purposes yes.  The settings below worked fine for me... but you don't need the PORT setting
+        # unless its something besides default
         'NAME': 'Rain',
-		'USER': 'Daniel',
-		'PASSWORD': 'letmein',
-		'HOST': 'localhost',
-		'PORT': '',
+        'USER': 'Daniel',
+        'PASSWORD': 'letmein',
+        'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -107,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -120,7 +120,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
